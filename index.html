@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MP GAMING TAMIL - GTA 6 Countdown</title>
+<style>
+body {
+  margin: 0;
+  background: transparent;
+  color: #ff00cc;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+h1 {
+  font-size: 42px;
+  text-shadow: 0 0 15px #ff00cc;
+  margin: 5px;
+}
+#timer {
+  font-size: 55px;
+  font-weight: bold;
+  text-shadow: 0 0 15px #ff00cc;
+}
+.unit {
+  display: inline-block;
+  margin: 0 12px;
+}
+small {
+  display: block;
+  font-size: 17px;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>MP GAMING TAMIL</h1>
+<div id="timer">
+  <span class="unit"><span id="days">0</span><small>DAYS</small></span>
+  <span class="unit"><span id="hours">0</span><small>HOURS</small></span>
+  <span class="unit"><span id="minutes">0</span><small>MINUTES</small></span>
+  <span class="unit"><span id="seconds">0</span><small>SECONDS</small></span>
+</div>
+
+<script>
+const target = new Date("2026-11-19T00:00:00+05:30").getTime();
+
+function updateTimer() {
+  let distance = target - Date.now();
+  if (distance < 0) distance = 0;
+
+  document.getElementById("days").textContent =
+    Math.floor(distance / 86400000);
+  document.getElementById("hours").textContent =
+    Math.floor((distance % 86400000) / 3600000);
+  document.getElementById("minutes").textContent =
+    Math.floor((distance % 3600000) / 60000);
+  document.getElementById("seconds").textContent =
+    Math.floor((distance % 60000) / 1000);
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
